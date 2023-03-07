@@ -40,4 +40,15 @@ public class AddressController {
         addressRepository.save(address);
         return address;
     }
+
+    @RequestMapping(path = "delete", method = RequestMethod.DELETE)
+    public Integer deleteAddress(@RequestParam Integer id){
+        Optional<Address> Address = addressRepository.findById(id);
+        if(Address.isPresent()){
+            addressRepository.delete(Address.get());
+            return 204;
+        }else{
+            return 
+        }
+    }
 }

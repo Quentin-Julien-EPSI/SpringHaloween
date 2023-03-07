@@ -25,7 +25,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-
     private boolean admin;
 
     private boolean enterprise;
