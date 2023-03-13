@@ -17,13 +17,10 @@ public class Product extends Enterprise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column (nullable = false)
     private String name;
 
-    @Column (nullable = false)
     private Long quantity;
 
-    @Column (nullable = false)
     private Float price;
 
     private String photo;

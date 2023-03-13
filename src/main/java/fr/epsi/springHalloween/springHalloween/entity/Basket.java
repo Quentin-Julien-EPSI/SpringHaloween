@@ -2,6 +2,8 @@ package fr.epsi.springHalloween.springHalloween.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -14,13 +16,10 @@ import java.util.Set;
 public class Basket extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column (name = "prix_ht", nullable = false)
     private float total_ht_price;
 
-    @Column (name = "prix_ttc", nullable = false)
     private float total_ttc_price;
 
     @OneToOne(orphanRemoval = true)
@@ -31,8 +30,9 @@ public class Basket extends User {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Basket.class)
+    @JoinColumn(name = "user_id", updatable = false)
+    @Fetch(FetchMode.JOIN)
     private User user;
 
     @ManyToMany

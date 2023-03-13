@@ -13,12 +13,12 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(path = "getAll")
+    @GetMapping(path = "all")
     public Iterable findAll() {
         return userRepository.findAll();
     }
 
-    @GetMapping(path = "getById")
+    @GetMapping(path = "find")
     public User findById(@RequestParam Integer id) {
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()){

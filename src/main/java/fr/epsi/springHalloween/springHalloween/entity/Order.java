@@ -16,7 +16,6 @@ import java.util.Objects;
 public class Order extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
 
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = Order.class)
@@ -33,6 +32,5 @@ public class Order extends User {
     @JoinColumn(name = "basket_id")
     private Basket basket;
 
-    @Column (name = "valid", nullable = false)
     private Boolean valid;
 }

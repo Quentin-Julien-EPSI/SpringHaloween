@@ -4,13 +4,14 @@ import fr.epsi.springHalloween.springHalloween.entity.Address;
 import fr.epsi.springHalloween.springHalloween.entity.Discount;
 import fr.epsi.springHalloween.springHalloween.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping (path = "adress")
+@RequestMapping (path = "address")
 public class AddressController {
 
     @Autowired
@@ -42,13 +43,25 @@ public class AddressController {
     }
 
     @RequestMapping(path = "delete", method = RequestMethod.DELETE)
-    public Integer deleteAddress(@RequestParam Integer id){
-        Optional<Address> Address = addressRepository.findById(id);
+    public ResponseEntity<Void> deleteAddress(@RequestParam Integer id) {
+        Optional<Address> address = addressRepository.findById(id);
+        if (address.isPresent()) {
+            addressRepository.delete(address.get());
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @RequestMapping(path = "update", method = RequestMethod.PUT)
+    public Address updateAddress(@RequestBody Address address){
+        Optional<Address> Address = addressRepository.findById(address.getId());
         if(Address.isPresent()){
-            addressRepository.delete(Address.get());
-            return 204;
+            addressRepository.save(address);
+            return address;
         }else{
-            return 
+            return null;
         }
     }
 }

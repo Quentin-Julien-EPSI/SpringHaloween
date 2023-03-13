@@ -2,6 +2,8 @@ package fr.epsi.springHalloween.springHalloween.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,10 +21,8 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private Float price;
 
     private String photo;
@@ -31,8 +31,9 @@ public class Service {
 
     private Float rating;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "service_type_id")
+    @Fetch(FetchMode.SELECT)
     private ServiceType serviceType;
 
     @ManyToMany
