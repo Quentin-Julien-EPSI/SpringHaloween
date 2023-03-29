@@ -13,24 +13,23 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity(name = "commande")
-public class Order extends User {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = Order.class)
-    @JoinColumn(name = "users_id")
-    private User users;
-
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinTable(name = "order_id_adress",
-            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id_adress_id", referencedColumnName = "id"))
-    private List<Address> id_addresses = new ArrayList<>();
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "basket_id")
     private Basket basket;
 
     private Boolean valid;
-}
+
+     @ManyToOne(cascade = CascadeType.ALL)
+     @JoinColumn(name = "adresse_id", unique = true)
+     private Address adresse;
+
+ }

@@ -1,5 +1,6 @@
 package fr.epsi.springHalloween.springHalloween.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
@@ -19,7 +20,7 @@ public class Service {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -34,6 +35,7 @@ public class Service {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "service_type_id")
     @Fetch(FetchMode.SELECT)
+    @JsonIgnore
     private ServiceType serviceType;
 
     @ManyToMany

@@ -6,14 +6,16 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
-@Entity(name = "Panier")
+@Entity()
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Basket extends User {
+public class Basket  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -22,16 +24,18 @@ public class Basket extends User {
 
     private float total_ttc_price;
 
-    @OneToOne(orphanRemoval = true)
+    @OneToOne
     @JoinColumn(name = "discount_id")
     private Discount discount;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @ManyToMany
+    @JoinTable(name = "basket_products",
+            joinColumns = @JoinColumn(name = "basket_id"),
+            inverseJoinColumns = @JoinColumn(name = "products_id"))
+    private List<Product> products;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Basket.class)
-    @JoinColumn(name = "user_id", updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Basket.class)
+    @JoinColumn(name = "users_id", updatable = false)
     @Fetch(FetchMode.JOIN)
     private User user;
 
@@ -39,6 +43,6 @@ public class Basket extends User {
     @JoinTable(name = "baskets_services",
             joinColumns = @JoinColumn(name = "basket_id"),
             inverseJoinColumns = @JoinColumn(name = "services_id"))
-    private Set<Service> services = new LinkedHashSet<>();
+    private List<Service> services = new LinkedList<>();
 
 }

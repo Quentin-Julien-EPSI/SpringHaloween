@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product extends Enterprise {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Product extends Enterprise {
 
     private String name;
 
-    private Long quantity;
+    private Integer quantity;
 
     private Float price;
 

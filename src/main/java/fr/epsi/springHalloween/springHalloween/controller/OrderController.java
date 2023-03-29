@@ -5,6 +5,7 @@ import fr.epsi.springHalloween.springHalloween.entity.Order;
 import fr.epsi.springHalloween.springHalloween.repository.OrderRepository;
 import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,13 +19,13 @@ public class OrderController {
     OrderRepository orderRepository;
 
     //1 Get orders
-    @RequestMapping(path = "/all",method = RequestMethod.GET)
+    @RequestMapping(path = "getAll",method = RequestMethod.GET)
     public List<Order> getOrders() {
         return (List<Order>) orderRepository.findAll();
     }
 
     //2 get orders by name
-    @RequestMapping(path = "/find", method = RequestMethod.GET )
+    @RequestMapping(path = "getById", method = RequestMethod.GET )
     public Order getOrder(@RequestParam Integer id) {
         Optional<Order> order = orderRepository.findById(id);
         if(order.isPresent()) {
@@ -37,10 +38,27 @@ public class OrderController {
 
     //3 Create order
 
-    @RequestMapping(path = "/create",method = RequestMethod.POST)
+    @RequestMapping(path = "create",method = RequestMethod.POST)
     public Order createOrder(@RequestBody Order order) {
         orderRepository.save(order);
         return order;
     }
 
+    @RequestMapping(path = "update",method = RequestMethod.PUT)
+    public Order updateOrder(@RequestBody Order order) {
+        orderRepository.save(order);
+        return order;
+    }
+
+    @RequestMapping(path = "delete",method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteOrder(@RequestParam Integer id) {
+        Optional<Order> order = orderRepository.findById(id);
+        if(order.isPresent()) {
+            orderRepository.delete(order.get());
+            return ResponseEntity.noContent().build();
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

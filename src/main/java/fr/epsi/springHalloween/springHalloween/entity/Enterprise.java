@@ -24,11 +24,12 @@ public class Enterprise {
     @ManyToMany(mappedBy = "enterprises")
     private Set<Service> services = new LinkedHashSet<>();
 
-    @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "owner_id")
+    @OneToOne()
+    //@JoinColumn(name = "owner_id")
     private User owner;
 
-    @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "address_id")
+    @OneToOne
+    @JoinColumn
+    //@JoinColumn(name = "address_id")
     private Address address;
 }

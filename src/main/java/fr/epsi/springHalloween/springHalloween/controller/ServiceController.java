@@ -1,13 +1,12 @@
 package fr.epsi.springHalloween.springHalloween.controller;
 
+import fr.epsi.springHalloween.springHalloween.entity.Product;
 import fr.epsi.springHalloween.springHalloween.entity.Service;
 import fr.epsi.springHalloween.springHalloween.entity.ServiceType;
 import fr.epsi.springHalloween.springHalloween.repository.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,17 +18,37 @@ public class ServiceController {
     @Autowired
     ServiceRepository serviceRepository;
 
-    // 1. GET : ALL Services
-    @RequestMapping(path="/all", method= RequestMethod.GET)
+    @RequestMapping(path="getAll", method= RequestMethod.GET)
     public List<Service> getAllServices(){
         return (List<Service>) serviceRepository.findAll();
     }
 
-    // 2. GET : Service by id
-    @RequestMapping(path = "/find", method = RequestMethod.GET)
-    public Service getService(@RequestParam Long id) {
+    @RequestMapping(path = "getById", method = RequestMethod.GET)
+    public Service getService(@RequestParam Integer id) {
         Optional<Service> service = serviceRepository.findById(id);
         return service.orElse(null);
+    }
+
+    @RequestMapping(path = "create", method = RequestMethod.POST)
+    public Service create(@RequestBody Service service) {
+        serviceRepository.save(service);
+        return service;
+    }
+
+    @RequestMapping(path = "update", method = RequestMethod.PUT)
+    public Service updateService(@RequestBody Service service) {
+        serviceRepository.save(service);
+        return service;
+    }
+
+    @RequestMapping(path = "delete", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteService(@RequestParam Integer id) {
+        Optional<Service> service = serviceRepository.findById(id);
+        if (service.isPresent()) {
+            serviceRepository.delete(service.get());
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

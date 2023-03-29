@@ -4,6 +4,7 @@ import fr.epsi.springHalloween.springHalloween.entity.Discount;
 import fr.epsi.springHalloween.springHalloween.entity.Order;
 import fr.epsi.springHalloween.springHalloween.repository.DiscountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,13 +18,13 @@ public class DiscountController {
     DiscountRepository discountRepository;
 
     //1 Get discount
-    @RequestMapping(path = "all", method = RequestMethod.GET)
+    @RequestMapping(path = "getAll", method = RequestMethod.GET)
     public List<Discount> getDiscount() {
         return (List<Discount>) discountRepository.findAll();
     }
 
     //2 get discount by name
-    @RequestMapping(path = "find", method = RequestMethod.GET)
+    @RequestMapping(path = "getById", method = RequestMethod.GET)
     public Discount getDiscount(@RequestParam Integer id) {
         Optional<Discount> Discount = discountRepository.findById(id);
         if (Discount.isPresent()) {
@@ -41,10 +42,22 @@ public class DiscountController {
         return discount;
     }
 
+    @RequestMapping(path = "update", method = RequestMethod.PUT)
+    public Discount updateDiscount(@RequestBody Discount discount) {
+        discountRepository.save(discount);
+        return discount;
+    }
+
     //4 Delete Discount
 
     @RequestMapping(path = "delete", method = RequestMethod.DELETE)
-    public void deleteDiscount(@RequestParam Integer id) {
-        discountRepository.deleteById(id);
+    public ResponseEntity<Void> deleteDiscount(@RequestParam Integer id) {
+        Optional<Discount> discount = discountRepository.findById(id);
+        if (discount.isPresent()) {
+            discountRepository.delete(discount.get());
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

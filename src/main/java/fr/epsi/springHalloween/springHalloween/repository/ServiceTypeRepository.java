@@ -4,6 +4,6 @@ import fr.epsi.springHalloween.springHalloween.entity.ServiceType;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ServiceTypeRepository extends CrudRepository<ServiceType, Long> {
+public interface ServiceTypeRepository extends CrudRepository<ServiceType, Integer> {
 
 }

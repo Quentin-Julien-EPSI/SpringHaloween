@@ -2,22 +2,23 @@ package fr.epsi.springHalloween.springHalloween.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 @Builder @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Integer id;
 
     private String firstName;
 
     private String lastName;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
@@ -26,7 +27,7 @@ public class User {
 
     private boolean enterprise;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Collection<Address> addresses = new ArrayList<>();
+    @ManyToMany(mappedBy = "users", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private List<Address> addresses;
 
 }

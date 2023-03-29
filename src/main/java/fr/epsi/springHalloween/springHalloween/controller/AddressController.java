@@ -18,13 +18,13 @@ public class AddressController {
     AddressRepository addressRepository;
 
     //1 Get address
-    @RequestMapping(path = "all", method = RequestMethod.GET)
+    @RequestMapping(path = "getAll", method = RequestMethod.GET)
     public List<Address> getAddress() {
         return (List<Address>) addressRepository.findAll();
     }
 
     //2 get Address by name
-    @RequestMapping(path = "find", method = RequestMethod.GET)
+    @RequestMapping(path = "getById", method = RequestMethod.GET)
     public Address getAddress(@RequestParam Integer id) {
         Optional<Address> Address = addressRepository.findById(id);
         if (Address.isPresent()) {

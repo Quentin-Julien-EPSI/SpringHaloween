@@ -2,9 +2,13 @@ package fr.epsi.springHalloween.springHalloween.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Entity(name = "adresse")
@@ -19,7 +23,9 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany(mappedBy = "id_addresses")
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name = "address_id")
+    @Fetch(FetchMode.SELECT)
     private List<Order> orders = new ArrayList<>();
 
     private String name;
@@ -32,8 +38,11 @@ public class Address {
 
     private  String country;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_adresse")
-    private User user;
+
+    @ManyToMany
+    @JoinTable(name = "address_users",
+            joinColumns = @JoinColumn(name = "address_id"),
+            inverseJoinColumns = @JoinColumn(name = "users_id"))
+    private Set<User> users = new LinkedHashSet<>();
 
 }
