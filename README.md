@@ -80,6 +80,15 @@ Notre API REST permet d'interagir avec les ressources suivantes :
 | + requestbody | - | + requestparam | + requestbody |
 
 ----
+## Règles de gestion 
+
+- Un utilisateur  ne peut avoir qu'une seule entreprise
+
+- Une entreprise ne peut avoir qu'un seul propriétaire
+
+- Un utilisateur ne peut avoir qu'une seule adresse
+
+- La date de création de l'entreprise est : la date de création IRL 
 
 ## Pour commencer
 
