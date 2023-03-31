@@ -7,8 +7,12 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Builder @Entity(name = "Entreprise")
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
+@Builder
+@Entity(name = "Entreprise")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Enterprise {
     @Id
@@ -22,11 +26,10 @@ public class Enterprise {
     private String creation_date;
 
     @OneToOne()
-    //@JoinColumn(name = "owner_id")
+    @JoinColumn(name = "owner_id")
     private User owner;
 
     @OneToOne
-    @JoinColumn
-    //@JoinColumn(name = "address_id")
+    @JoinColumn(name = "address_id")
     private Address address;
 }

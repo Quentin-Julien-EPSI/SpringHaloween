@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 
-@Table(name = "address")
+@Entity(name = "Address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +35,5 @@ public class Address {
 
     private String zipcode;
 
-    private  String country;
+    private String country;
 }
