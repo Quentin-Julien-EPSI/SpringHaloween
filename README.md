@@ -45,3 +45,9 @@ Notre API REST permet d'interagir avec les ressources suivantes :
 ## Pour commencer
 
 N'hésitez pas à nous faire part de vos commentaires et suggestions pour améliorer notre site web et notre API. Nous espérons que vous passerez un agréable moment à préparer votre fête d'Halloween avec Spring-Halloween !
+
+## Contributeur
+
+- Julien FLUSIN
+- Quentin LAUNAY
+- Sangmin SHIM
