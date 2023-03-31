@@ -25,7 +25,7 @@ public class Order {
     private Boolean valid;
 
      @ManyToOne(cascade = CascadeType.ALL)
-     @JoinColumn(name = "adresse_id", unique = true)
+     @JoinColumn(name = "address_id", unique = true)
      private Address address;
 
      @ManyToOne(optional = false)
