@@ -88,6 +88,9 @@ public class UserController {
                 filteredUser.setEmail(userFound.get().getEmail());
                 filteredUser.setFirstName(userFound.get().getFirstName());
                 filteredUser.setLastName(userFound.get().getLastName());
+                filteredUser.setAdmin(userFound.get().isAdmin());
+                filteredUser.setAddress(userFound.get().getAddress());
+                filteredUser.setEnterprise(userFound.get().isEnterprise());
                 return ResponseEntity.status(HttpStatus.OK).body(filteredUser);
             } else {
                 return ResponseEntity.notFound().build();
