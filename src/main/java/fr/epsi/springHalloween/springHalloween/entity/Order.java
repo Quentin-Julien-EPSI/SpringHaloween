@@ -18,7 +18,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Order.class)
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
     @JoinColumn(name = "user_id")
     private User user;
 

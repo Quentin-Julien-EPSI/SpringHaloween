@@ -28,7 +28,7 @@ public class User {
     private boolean enterprise;
 
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "address_id")
     private Address address;
 
 }

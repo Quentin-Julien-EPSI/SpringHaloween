@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 
 @Getter
-@Entity(name = "adresse")
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
