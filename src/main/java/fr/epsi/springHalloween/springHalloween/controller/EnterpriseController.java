@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "enterprise")
 public class EnterpriseController {
@@ -54,6 +55,7 @@ public class EnterpriseController {
             enterprise.setCreation_date((String) payload.get("creation_date"));
             enterprise.setOwner(owner.get());
             enterprise.setAddress(address.get());
+
 
             return enterpriseRepository.save(enterprise);
         } else {

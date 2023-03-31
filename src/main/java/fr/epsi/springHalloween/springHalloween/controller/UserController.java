@@ -31,7 +31,7 @@ public class UserController {
             filteredUser.setFirstName(user.get().getFirstName());
             filteredUser.setLastName(user.get().getLastName());
             filteredUser.setAdmin(user.get().isAdmin());
-            filteredUser.setAddresses(user.get().getAddresses());
+            filteredUser.setAddress(user.get().getAddress());
             filteredUser.setEnterprise(user.get().isEnterprise());
             return filteredUser;
         } else {
@@ -48,7 +48,7 @@ public class UserController {
         filteredUser.setFirstName(user.getFirstName());
         filteredUser.setLastName(user.getLastName());
         filteredUser.setAdmin(user.isAdmin());
-        filteredUser.setAddresses(user.getAddresses());
+        filteredUser.setAddress(user.getAddress());
         filteredUser.setEnterprise(user.isEnterprise());
         return filteredUser;
     }
@@ -62,7 +62,7 @@ public class UserController {
         filteredUser.setFirstName(user.getFirstName());
         filteredUser.setLastName(user.getLastName());
         filteredUser.setAdmin(user.isAdmin());
-        filteredUser.setAddresses(user.getAddresses());
+        filteredUser.setAddress(user.getAddress());
         filteredUser.setEnterprise(user.isEnterprise());
         return filteredUser;
     }

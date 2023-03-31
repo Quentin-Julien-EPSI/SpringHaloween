@@ -37,12 +37,4 @@ public class Address {
     private String zipcode;
 
     private  String country;
-
-
-    @ManyToMany
-    @JoinTable(name = "address_users",
-            joinColumns = @JoinColumn(name = "address_id"),
-            inverseJoinColumns = @JoinColumn(name = "users_id"))
-    private Set<User> users = new LinkedHashSet<>();
-
 }

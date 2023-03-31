@@ -21,9 +21,6 @@ public class Enterprise {
 
     private String creation_date;
 
-    @ManyToMany(mappedBy = "enterprises")
-    private Set<Service> services = new LinkedHashSet<>();
-
     @OneToOne()
     //@JoinColumn(name = "owner_id")
     private User owner;

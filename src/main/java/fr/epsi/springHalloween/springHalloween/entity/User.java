@@ -27,7 +27,8 @@ public class User {
 
     private boolean enterprise;
 
-    @ManyToMany(mappedBy = "users", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-    private List<Address> addresses;
+    @OneToOne
+    @JoinColumn
+    private Address address;
 
 }

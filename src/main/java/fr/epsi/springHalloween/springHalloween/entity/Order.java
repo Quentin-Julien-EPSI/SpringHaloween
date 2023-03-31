@@ -22,10 +22,6 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "basket_id")
-    private Basket basket;
-
     private Boolean valid;
 
      @ManyToOne(cascade = CascadeType.ALL)
