@@ -44,6 +44,4 @@ Notre API REST permet d'interagir avec les ressources suivantes :
 
 ## Pour commencer
 
-Pour utiliser notre API, consultez la documentation complète disponible à l'adresse suivante : [https://spring-halloween-api.flusin.fr/docs](https://spring-halloween-api.flusin.fr/docs)
-
 N'hésitez pas à nous faire part de vos commentaires et suggestions pour améliorer notre site web et notre API. Nous espérons que vous passerez un agréable moment à préparer votre fête d'Halloween avec Spring-Halloween !
