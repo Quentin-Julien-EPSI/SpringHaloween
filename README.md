@@ -51,7 +51,7 @@ Notre API REST permet d'interagir avec les ressources suivantes :
 | + requestbody | - | + requestparam | + requestbody |
 
 
-### Commande (/command)
+### Order (/order)
 
 - Création d'une nouvelle commande
 - Affichage de l'historique des commandes d'un utilisateur
