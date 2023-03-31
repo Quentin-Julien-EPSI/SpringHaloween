@@ -13,34 +13,68 @@ Vous pouvez accéder au site web via les liens suivants :
 
 Notre API REST permet d'interagir avec les ressources suivantes :
 
-### Utilisateur
+### Utilisateur (/user)
 
 - Création d'un compte utilisateur
 - Authentification et gestion de session
 - Modification des informations du compte
 - Suppression du compte utilisateur
 
-### Produit
+| POST | GET | DELETE | PUT |
+| -------- | -------- | -------- | -------- |
+| /create | /getAll , /get?id=1 | /delete?id=1 | /update |
+| + requestbody | - | + requestparam | + requestbody |
+
+
+### Produit (/product)
 
 - Liste des produits disponibles
 - Recherche de produits par catégorie ou nom
 - Affichage des détails d'un produit spécifique
 
-### Entreprise
+
+| POST | GET | DELETE | PUT |
+| -------- | -------- | -------- | -------- |
+| /create | /getAll , /get?id=1 | /delete?id=1 | /update |
+| + requestbody | - | + requestparam | + requestbody |
+
+
+### Entreprise (/enterprise)
 
 - Informations sur l'entreprise
 - Contact et support
 
-### Commande
+
+| POST | GET | DELETE | PUT |
+| -------- | -------- | -------- | -------- |
+| /create | /getAll , /get?id=1 | /delete?id=1 | /update |
+| + requestbody | - | + requestparam | + requestbody |
+
+
+### Commande (/command)
 
 - Création d'une nouvelle commande
 - Affichage de l'historique des commandes d'un utilisateur
 - Mise à jour et annulation d'une commande
 
-### Adresse
+
+| POST | GET | DELETE | PUT |
+| -------- | -------- | -------- | -------- |
+| /create | /getAll , /get?id=1 | /delete?id=1 | /update |
+| + requestbody | - | + requestparam | + requestbody |
+
+
+### Adresse (/address)
 
 - Gestion des adresses de livraison et de facturation
 - Ajout, modification et suppression d'adresses
+
+
+| POST | GET | DELETE | PUT |
+| -------- | -------- | -------- | -------- |
+| /create | /getAll , /get?id=1 | /delete?id=1 | /update |
+| + requestbody | - | + requestparam | + requestbody |
+
 
 ## Pour commencer
 
