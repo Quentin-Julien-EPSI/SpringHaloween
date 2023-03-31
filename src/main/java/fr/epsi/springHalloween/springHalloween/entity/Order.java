@@ -26,6 +26,10 @@ public class Order {
 
      @ManyToOne(cascade = CascadeType.ALL)
      @JoinColumn(name = "adresse_id", unique = true)
-     private Address adresse;
+     private Address address;
+
+     @ManyToOne(optional = false)
+     @JoinColumn(name = "product_id", nullable = false)
+     private Product product;
 
  }
