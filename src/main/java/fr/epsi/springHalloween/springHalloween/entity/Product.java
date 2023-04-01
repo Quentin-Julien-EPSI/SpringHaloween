@@ -23,6 +23,7 @@ public class Product {
 
     private Float price;
 
+    @Column(length = 400)
     private String photo;
 
     private String description;
