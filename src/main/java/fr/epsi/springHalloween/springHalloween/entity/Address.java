@@ -1,5 +1,6 @@
 package fr.epsi.springHalloween.springHalloween.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
@@ -22,6 +23,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonIgnore
     @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "address_id")
     @Fetch(FetchMode.SELECT)
