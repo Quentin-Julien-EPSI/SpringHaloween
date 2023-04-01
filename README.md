@@ -1,6 +1,6 @@
 # Spring-Halloween
 
-Consignes : [https://docs.google.com/document/d/1CgEd5D88D8DOj8qL0GHX2MjQ-Gt0hPm0XBwY3Ddzhgs](Google docs consigne)
+Consignes : https://docs.google.com/document/d/1CgEd5D88D8DOj8qL0GHX2MjQ-Gt0hPm0XBwY3Ddzhgs
 
 Bienvenue sur le dépôt Git de Spring-Halloween, un site web dédié à la vente de produits pour Halloween, tels que des bonbons, des masques de citrouille, et bien d'autres choses encore.
 
