@@ -1,7 +1,9 @@
 # Spring-Halloween
 
 Consignes : https://docs.google.com/document/d/1CgEd5D88D8DOj8qL0GHX2MjQ-Gt0hPm0XBwY3Ddzhgs
-- Repository Front-End : https://github.com/jul-fls/spring_halloween_front (sang-min park inconnu au bataillon, il s'agit d'une erreur sur un commit où j'avais pas mis le bon nom de compte pour sangmin shim)
+
+- Repository Front-End : https://github.com/jul-fls/spring_halloween_front (sang-min park inconnu au bataillon, il s'agit d'une erreur sur un commit où j'avais pas mis le bon nom de compte pour sangmin shim).
+
 Bienvenue sur le dépôt Git de Spring-Halloween, un site web dédié à la vente de produits pour Halloween, tels que des bonbons, des masques de citrouille, et bien d'autres choses encore.
 
 ## Présentation du site web
