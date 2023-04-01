@@ -30,6 +30,6 @@ public class Product {
     private Float rating;
 
     @ManyToOne
-    @JoinColumn(name = "enterprises_id")
-    private Enterprise enterprises;
+    @JoinColumn(name = "enterprise_id")
+    private Enterprise enterprise;
 }
